@@ -1,0 +1,43 @@
+<div class="envi-slider envi-obj">
+  <div class="envi-slider-header bg-success">
+      {{'slider.OBJ' | translate}} <span class="m-l-r">/</span> {{'slider.SECTOR' | translate}} <span class="m-l-r">/</span> {{'slider.KNOWLEDGE' | translate}}
+  </div>
+  <div class="envi-slider-content">
+    <form>
+      <legend translate="slider.SELECT_DB"></legend>
+      <fieldset>
+        <div class="form-group">
+          <div class="radio">
+            <label>
+              <input type="radio" name="rModes" ng-model="sMode" value="obj" checked />
+              {{'slider.OBJ_LONG' | translate}}
+            </label>
+          </div>
+          <div class="radio">
+            <label>
+              <input type="radio" name="rModes" ng-model="sMode" value="sector" />
+              {{'slider.SECTOR_LONG' | translate}}
+            </label>
+          </div>
+          <div class="radio">
+            <label>
+              <input type="radio" name="rModes" ng-model="sMode" value="knowledge" />
+              {{'slider.KNOWLEDGE_LONG' | translate}}
+            </label>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+    <div obj-filter-directive ng-if="sMode == 'obj'"></div>
+    <div knowledge-directive ng-if="sMode == 'knowledge'"></div>
+    <div class="envi-slider-footer">
+      <p class="envi-symbols">
+        <a href="http://ec.europa.eu/" target="_blank"><img src="/images/orgs/1.jpg"></a>
+        <a href="http://sic.icwc-aral.uz/" target="_blank"><img src="/images/orgs/2.jpg"></a>
+        <a href="http://www.carecnet.org/" target="_blank"><img src="/images/orgs/3.jpg"></a>
+        <a href="http://cawater-info.net/" target="_blank"><img src="/images/orgs/4.jpg"></a>
+      </p>
+      <p translate="site.FOOTER"></p>
+    </div>
+  </div>
+</div>

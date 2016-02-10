@@ -1,0 +1,124 @@
+<!-- Page Features -->
+<div class="row text-center obj-row" style="margin-top: 10px">
+
+  <div class="panel panel-primary">
+      <div class="panel-heading">
+          <div class="panel-btn-bar">
+            <a href
+              bs-modal
+              class="btn btn-success btn-xs btn-edit"
+              data-animation="am-fade-and-scale"
+              data-template="templates/obj/import.tpl.html"
+              ng-if="obj.param > 0 && selects.obj > 0"
+              translate="mainmenu.IMPORT"
+            ></a>
+            <a href class="btn btn-success btn-xs btn-edit" translate="mainmenu.EXPORT" onclick="return ExcellentExport.excel(this, 'table-obj')"></a>
+            <a href class="btn btn-success btn-xs btn-edit" translate="mainmenu.PRINT" ng-click="print('chart-obj')"></a>
+          </div>
+          <h3 class="panel-title" translate="site.DATA_VISUALIZATION"></h3>
+      </div>
+      <div class="panel-body">
+          <div class="col-sm-6">
+
+              <form>
+                <div class="form-group">
+                  <span class="choose" translate="obj.PARAM_SELECT"></span>
+                  <button type="button" class="btn btn-success btn-sm"
+                    ng-model="obj.param"
+                    data-html="1"
+                    bs-options="param.id as (param | xtranslate:'name') for param in obj.params"
+                    placeholder="{{'obj.PARAM_SELECT' | translate}}"
+                    bs-select data-animation="am-flip-x" required>
+                  </button>
+
+                  <div class="pull-right">
+                    <button
+                      bs-modal
+                      type="button" data-animation="am-fade-and-scale"
+                      class="btn btn-primary btn-sm"
+                      data-template="templates/obj/param.tpl.html"
+                      data-container="body"
+                      ng-click="obj.paramAction(false)"
+                      ng-if="selects.org > 0"
+                      title="{{'obj.PARAM_CREATE' | translate}}">
+                      <i class="glyphicon glyphicon-plus"></i>
+                    </button>
+
+                    <button
+                      bs-modal
+                      type="button" data-animation="am-fade-and-scale"
+                      class="btn btn-success btn-sm"
+                      data-template="templates/obj/param.tpl.html"
+                      data-container="body"
+                      ng-click="obj.paramAction(true)"
+                      ng-if="obj.param > 0"
+                      title="{{'obj.PARAM_UPDATE' | translate}}">
+                      <i class="glyphicon glyphicon-pencil"></i>
+                    </button>
+
+                    <button
+                      type="button" data-animation="am-fade-and-scale"
+                      class="btn btn-danger btn-sm"
+                      ng-if="obj.param > 0"
+                      ng-click="obj.destroyParam()"
+                      title="{{'obj.PARAM_DELETE' | translate}}">
+                      <i class="glyphicon glyphicon-minus"></i>
+                    </button>
+
+                    <button
+                      type="button" data-animation="am-fade-and-scale"
+                      class="btn btn-warning btn-sm"
+                      ng-if="selects.obj && obj.param > 0"
+                      ng-click="obj.addYear()"
+                      title="{{'obj.PARAM_ADD_YEAR' | translate}}"
+                      translate="obj.PARAM_ADD_YEAR">
+                    </button>
+                  </div>
+                </div>
+              </form>                    
+
+              <table class="table table-hover table-striped table-condensed" id="table-obj">
+                <thead>
+                  <tr>
+                    <th translate="obj.YEAR"></th>
+                    <th>I</th>
+                    <th>II</th>
+                    <th>III</th>
+                    <th>IV</th>
+                    <th>V</th>
+                    <th>VI</th>
+                    <th>VII</th>
+                    <th>VIII</th>
+                    <th>IX</th>
+                    <th>X</th>
+                    <th>XI</th>
+                    <th>XII</th>
+                    <th translate="obj.LIMIT" ng-if="!obj.secondAxe"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="data in obj.data">
+                    <th scope="row" class="cursor-pointer" ng-click="obj.chartAnotherYear(data)" ng-class="{'warning': data.selected}">{{data.year}}</th>
+                    <td
+                      ng-repeat="n in [1,2,3,4,5,6,7,8,9,10,11,12]"
+                      ng-dblclick="obj.editData(data, n)"
+                    >
+                      {{data['m'+n]}}
+                    </td>
+                    <td ng-dblclick="obj.editData(data)" ng-if="!obj.secondAxe">{{data.limit}}</td>
+                  </tr>
+                </tbody>
+              </table>
+          </div>
+          <div class="col-sm-6" ng-if="obj.data.length > 0" id="chart-obj">
+            <span style="font-weight:bold;">{{ obj.curData.year }}</span>
+            <linechart data="obj.chart.data" options="obj.chart.options" height="350"></linechart>
+            <div class="btn-group btn-group-xs" role="group">
+              <button type="button" class="btn" ng-class="{'btn-success': type.code == obj.sChart, 'btn-warning': type.code != obj.sChart}" ng-repeat="type in obj.chartTypes" ng-click="obj.changeChart(type)">{{ (type | xtranslate:'name') }}</button>
+            </div>            
+          </div>
+      </div>
+  </div>
+
+</div>
+<!-- /.row -->

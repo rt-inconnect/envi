@@ -1,0 +1,65 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title" translate="obj.PASSPORT_TITLE"></h3>
+    <div class="panel-btn-bar">
+      <a href class="btn btn-success btn-xs btn-edit" ng-click="objPassport.toggleEdit()" translate="mainmenu.EDIT"></a>
+    </div>
+  </div>
+  <div class="panel-body">
+    <form>
+      <div class="form-group">
+        <button type="button" class="btn btn-success btn-sm obj-select" ng-model="selects.obj" data-html="1" bs-options="obj.id as (obj | xtranslate:'name') for obj in commonData.objs" placeholder="{{'slider.SELECT_OBJ' | translate}}" bs-select data-animation="am-flip-x" placement="bottom-right" required />
+          Action <span class="caret"></span>
+        </button>
+      </div>
+    </form>
+    <div ng-if="!commonData.obj.isEdit">
+      <table class="table table-hover">
+        <tr>
+          <th scope="row" translate="obj.ORGANIZATION"></th>
+          <td>{{ commonData.org | xtranslate:'note' }}</td>
+        </tr>
+        <tr>
+          <th scope="row" translate="obj.COUNTRY"></th>
+          <td>{{ commonData.org.repId | xtranslate:'name' }}</td>
+        </tr>
+        <tr>
+          <th scope="row" translate="obj.LATITUDE"></th>
+          <td>{{ commonData.obj.latitude }}</td>
+        </tr>
+        <tr>
+          <th scope="row" translate="obj.LONGITUDE"></th>
+          <td>{{ commonData.obj.longitude }}</td>
+        </tr>
+      </table>
+      <hr>
+      <div class="media">
+        <div class="media-body"> {{ commonData.obj | xtranslate:'note' }} </div>
+        <div class="media-right" ng-if="commonData.obj.picture">
+          <a href="{{commonData.obj.picture}}" rel="shadowbox">
+            <img class="media-object" ng-src="{{commonData.obj.picture}}" style="max-width: 150px;">
+          </a>
+        </div>
+      </div>      
+
+    </div>
+    <form ng-if="commonData.obj.isEdit" ng-submit="objPassport.save(commonData.obj)" class="obj-passport-form">
+      <div class="form-group">
+        <label class="control-label" for="objPictureFile" translate="obj.PICTURE"></label>
+        <input class="form-control" id="objPictureFile" type="file" nv-file-select="" uploader="objPassport.uploader" options="{obj:commonData.obj}">
+      </div>
+      <div class="form-group">
+        <label class="control-label" for="objNoteRu" translate="obj.NOTE_RU"></label>
+        <textarea rows="3" name="text" ng-model="commonData.obj.noteRu"></textarea>
+      </div>
+      <div class="form-group">
+        <label class="control-label" for="objNoteEn" translate="obj.NOTE_EN"></label>
+        <textarea rows="3" name="text" ng-model="commonData.obj.noteEn"></textarea>
+      </div>
+      <div class="form-group">
+        <button type="reset" class="btn btn-default" ng-click="commonData.obj.isEdit = false" translate="modal.CANCEL"></button>
+        <button type="submit" class="btn btn-primary" translate="modal.SAVE"></button>
+      </div>
+    </form>   
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<div class="panel panel-primary panel-gis">
+    <div class="panel-heading">
+        <h3 class="panel-title" translate="site.GIS"></h3>
+      <div class="panel-btn-bar">
+        <a href class="btn btn-success btn-xs btn-edit" ng-click="gis.export()" translate="mainmenu.EXPORT"></a>
+      </div>
+    </div>
+    <div class="panel-body" style="padding:0;" id="panel-gis">
+      <form class="search-form">
+        <input type="text" class="form-control input-sm"
+          ng-model="commonData.obj"
+          data-animation="am-flip-x"
+          bs-options="obj as (obj | xtranslate:'name') for obj in gis.map.search($viewValue)" placeholder="{{'mainmenu.SEARCH_PLACEHOLDER' | translate}}"
+          min-length="4"
+          bs-typeahead
+        />
+      </form>
+
+      <ui-gmap-google-map center='gis.map.center' zoom='gis.map.zoom'>
+        <ui-gmap-window
+          ng-if="gis.map.window.show"
+          show="gis.map.window.show"
+          coords="gis.map.window.model"
+          options="gis.map.window.options"
+          closeclick="gis.map.window.closeClick()"
+        >
+          <div>{{gis.map.window.model | xtranslate:'name'}}</div>
+        </ui-gmap-window>
+        <ui-gmap-markers
+          idkey="'id'"
+          models="commonData.objs"
+          coords="'self'"
+          events="gis.map.markersEvents"
+          >
+        </ui-gmap-markers>
+      </ui-gmap-google-map>
+
+    </div>
+</div>

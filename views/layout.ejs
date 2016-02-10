@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html ng-app="app">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+        
+    <title translate="site.TITLE"></title>
+
+    <!-- Viewport mobile tag for sensible mobile support -->
+
+    
+    <!--  
+        Stylesheets and Preprocessors
+        ==============================
+
+        You can always bring in CSS files manually with `<link>` tags, or asynchronously
+        using a solution like AMD (RequireJS).  Or, if you like, you can take advantage 
+        of Sails' conventional asset pipeline (boilerplate Gruntfile).
+
+        By default, stylesheets from your `assets/styles` folder are included
+        here automatically (between STYLES and STYLES END). Both CSS (.css) and LESS (.less)
+        are supported. In production, your styles will be minified and concatenated into
+        a single file.
+        
+        To customize any part of the built-in behavior, just edit `tasks/pipeline.js`.
+        For example, here are a few things you could do:
+            
+            + Change the order of your CSS files
+            + Import stylesheets from other directories
+            + Use a different or additional preprocessor, like SASS, SCSS or Stylus
+    -->
+
+    <!--STYLES-->
+    <link rel="stylesheet" href="/styles/angular-motion.css">
+    <link rel="stylesheet" href="/styles/cosmo.css">
+    <link rel="stylesheet" href="/styles/importer.css">
+    <link rel="stylesheet" href="/styles/shadowbox.css">
+    <link rel="stylesheet" href="/styles/style.css">
+    <!--STYLES END-->
+
+    <script type="text/javascript">
+      var roles = <%- JSON.stringify(req.session.roles || []) %>;
+      var token = '<%- Geo.token(req.session) %>';
+    </script>    
+  </head>
+
+  <body ng-controller="App as app">
+    <%- body %>
+
+
+
+    <!--
+        Client-side Templates
+        ========================
+
+        HTML templates are important prerequisites of modern, rich client applications.
+        To work their magic, frameworks like Backbone, Angular, Ember, and Knockout require
+        that you load these templates client-side.
+
+        By default, your Gruntfile is configured to automatically load and precompile
+        client-side JST templates in your `assets/templates` folder, then
+        include them here automatically (between TEMPLATES and TEMPLATES END).
+        
+        To customize this behavior to fit your needs, just edit `tasks/pipeline.js`.
+        For example, here are a few things you could do:
+
+            + Import templates from other directories
+            + Use a different template engine (handlebars, jade, dust, etc.)
+            + Internationalize your client-side templates using a server-side
+              stringfile before they're served.
+    -->
+
+    <!--TEMPLATES-->
+    <script type="text/javascript" src="/jst.js"></script>
+    <!--TEMPLATES END-->
+
+
+    <!--
+
+      Client-side Javascript
+      ========================
+
+      You can always bring in JS files manually with `script` tags, or asynchronously
+      on the client using a solution like AMD (RequireJS).  Or, if you like, you can 
+      take advantage of Sails' conventional asset pipeline (boilerplate Gruntfile).
+
+      By default, files in your `assets/js` folder are included here
+      automatically (between SCRIPTS and SCRIPTS END).  Both JavaScript (.js) and
+      CoffeeScript (.coffee) are supported. In production, your scripts will be minified
+      and concatenated into a single file.
+      
+      To customize any part of the built-in behavior, just edit `tasks/pipeline.js`.
+      For example, here are a few things you could do:
+          
+          + Change the order of your scripts
+          + Import scripts from other directories
+          + Use a different preprocessor, like TypeScript
+
+    -->
+
+    <!-- <script src="//maps.googleapis.com/maps/api/js?v=3.exp"></script> -->
+    <!--SCRIPTS-->
+    <script src="/js/dependencies/angular.js"></script>
+    <script src="/js/dependencies/angular-animate.js"></script>
+    <script src="/js/dependencies/angular-cookies.js"></script>
+    <script src="/js/dependencies/angular-file-upload.js"></script>
+    <script src="/js/dependencies/angular-google-maps.js"></script>
+    <script src="/js/dependencies/angular-sanitize.js"></script>
+    <script src="/js/dependencies/angular-strap.js"></script>
+    <script src="/js/dependencies/angular-strap.tpl.js"></script>
+    <script src="/js/dependencies/angular-translate.js"></script>
+    <script src="/js/dependencies/angular-ui-router.js"></script>
+    <script src="/js/dependencies/common.js"></script>
+    <script src="/js/dependencies/d3.js"></script>
+    <script src="/js/dependencies/excellentexport.js"></script>
+    <script src="/js/dependencies/line-chart.js"></script>
+    <script src="/js/dependencies/loader-static-files.js"></script>
+    <script src="/js/dependencies/lodash.js"></script>
+    <script src="/js/dependencies/md5.js"></script>
+    <script src="/js/dependencies/shadowbox.js"></script>
+    <script src="/js/dependencies/storage-cookie.js"></script>
+    <script src="/js/app/app.js"></script>
+    <script src="/js/app/module.auth.js"></script>
+    <script src="/js/app/module.chart.js"></script>
+    <script src="/js/app/module.config.js"></script>
+    <script src="/js/app/module.constant.js"></script>
+    <script src="/js/app/module.gis.js"></script>
+    <script src="/js/app/module.knowledge.js"></script>
+    <script src="/js/app/module.mainmenu.js"></script>
+    <script src="/js/app/module.obj.js"></script>
+    <script src="/js/app/module.org.js"></script>
+    <script src="/js/app/module.republic.js"></script>
+    <script src="/js/app/module.sector.js"></script>
+    <script src="/js/app/module.slider.js"></script>
+    <script src="/js/app/module.xtranslate.js"></script>
+    <!--SCRIPTS END-->
+  </body>
+</html>

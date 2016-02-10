@@ -1,0 +1,41 @@
+<form name="Knowledge">
+  <div class="form-group">
+    <button type="button"
+      class="btn btn-success btn-sm"
+      ng-model="knowledge.sCategory"
+      data-html="1"
+      bs-options="category.id as (category | xtranslate:'name') for category in knowledge.categories"
+      placeholder="{{'slider.SELECT_CATEGORY' | translate}}"
+      bs-select data-animation="am-flip-x" required>
+    </button>
+    <button
+      bs-modal type="button" data-animation="am-fade-and-scale"
+      class="btn btn-warning btn-sm"
+      data-template="templates/knowledge/category.tpl.html"
+      data-container="body"
+      title="{{'slider.CREATE_CATEGORY' | translate}}">
+      <i class="glyphicon glyphicon-plus"></i>
+    </button>
+  </div>
+
+  <div class="form-group">
+    <button type="button"
+      class="btn btn-success btn-sm"
+      ng-model="knowledge.sKnowledge"
+      data-html="1"
+      bs-options="knowledge.id as (knowledge | xtranslate:'name') for knowledge in knowledge.knowledges"
+      placeholder="{{'slider.SELECT_KNOWLEDGE' | translate}}"
+      bs-select data-animation="am-flip-x" required>
+    </button>
+    <button
+      bs-modal type="button" data-animation="am-fade-and-scale"
+      class="btn btn-warning btn-sm"
+      data-template="templates/knowledge/knowledge.tpl.html"
+      data-container="body"
+      title="{{'slider.CREATE_KNOWLEDGE' | translate}}"
+      ng-if="knowledge.sCategory > 0">
+      <i class="glyphicon glyphicon-plus"></i>
+    </button>    
+  </div>
+
+</form>

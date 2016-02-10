@@ -1,0 +1,98 @@
+<!-- Page Features -->
+<div class="row text-center obj-row" style="margin-top: 3px">
+
+  <div class="panel panel-primary">
+      <div class="panel-heading">
+          <div class="panel-btn-bar">
+            <a href class="btn btn-success btn-xs btn-edit" translate="mainmenu.EXPORT" onclick="return ExcellentExport.excel(this, 'table-sector')"></a>
+            <a href class="btn btn-success btn-xs btn-edit" translate="mainmenu.PRINT" ng-click="print('chart-sector')"></a>
+          </div>
+          <h3 class="panel-title" translate="site.DATA_VISUALIZATION"></h3>
+      </div>
+      <div class="panel-body">
+          <div class="col-sm-6">
+
+              <form ng-submit="submitForm()" name="SectorParams">
+                <div class="form-group">
+                  <span class="choose" translate="sector.PARAM_SELECT"></span>
+                  <button type="button" class="btn btn-success btn-sm" ng-model="sector.sParam" data-html="1" bs-options="param.id as (param | xtranslate:'name') for param in sector.params" placeholder="{{'sector.PARAM_SELECT' | translate}}" bs-select data-animation="am-flip-x" required />
+                    Action <span class="caret"></span>
+                  </button>
+
+                  <div class="pull-right">
+                    <button
+                      bs-modal
+                      type="button" data-animation="am-fade-and-scale"
+                      class="btn btn-primary btn-sm"
+                      data-template="templates/sector/param.tpl.html"
+                      data-container="body"
+                      ng-click="sector.paramAction(false)"
+                      title="{{'sector.PARAM_CREATE' | translate}}">
+                      <i class="glyphicon glyphicon-plus"></i>
+                    </button>
+
+                    <button
+                      bs-modal
+                      type="button" data-animation="am-fade-and-scale"
+                      class="btn btn-success btn-sm"
+                      data-template="templates/sector/param.tpl.html"
+                      data-container="body"
+                      ng-if="sector.sParam > 0"
+                      ng-click="sector.paramAction(true)"
+                      title="{{'sector.PARAM_UPDATE' | translate}}">
+                      <i class="glyphicon glyphicon-pencil"></i>
+                    </button>
+
+                    <button
+                      type="button" data-animation="am-fade-and-scale"
+                      class="btn btn-danger btn-sm"
+                      ng-if="sector.sParam > 0"
+                      ng-click="sector.destroyParam()"
+                      title="{{'sector.PARAM_DELETE' | translate}}">
+                      <i class="glyphicon glyphicon-minus"></i>
+                    </button>
+
+                    <button
+                      type="button" data-animation="am-fade-and-scale"
+                      class="btn btn-warning btn-sm"
+                      ng-if="sector.sParam > 0"
+                      ng-click="sector.addYear()"
+                      title="{{'sector.PARAM_ADD_YEAR' | translate}}"
+                      translate="sector.PARAM_ADD_YEAR">
+                    </button>                    
+
+                  </div>                  
+                </div>
+              </form>
+
+              <span class="info" translate="sector.INFO"></span>
+
+              <table class="table table-hover table-striped table-condensed" id="table-sector">
+                <thead>
+                  <tr>
+                    <th translate="obj.YEAR"></th>
+                    <th ng-repeat="republic in sector.republics" class="cursor-pointer" ng-class="{'warning': republic.selected}" ng-click="sector.chartOneRepublic(republic)">{{ republic | xtranslate:'name' }}</th>
+                    <th translate="sector.BAM"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="(year, data) in sector.datas">
+                    <th scope="row">{{::year}}</th>
+                    <td ng-repeat="republic in data" ng-dblclick="sector.editData(republic)">{{republic.data}}</td>
+                    <td>{{sector.calcTotal(data)}}</td>
+                  </tr>
+                </tbody>
+              </table>
+          </div>
+          <div class="col-sm-6" id="chart-sector">
+            <span>{{ (sector.curParam | xtranslate:'name') }}</span>
+            <linechart data="sector.chart.data" options="sector.chart.options" height="350"></linechart>
+            <div class="btn-group btn-group-xs" role="group">
+              <button type="button" class="btn" ng-class="{'btn-success': type.code == sector.sChart, 'btn-warning': type.code != sector.sChart}" ng-repeat="type in sector.chartTypes" ng-click="sector.changeChart(type)">{{ (type | xtranslate:'name') }}</button>
+            </div>
+          </div>
+      </div>
+  </div>
+
+</div>
+<!-- /.row -->

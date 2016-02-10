@@ -1,0 +1,14 @@
+<form ng-submit="submitForm()" name="ObjectFilter">
+  <div class="form-group">
+    <button type="button" class="btn btn-success btn-sm" ng-model="selects.rep" data-html="1" bs-options="republic.id as (republic | xtranslate:'name') for republic in commonData.republics" placeholder="{{'slider.SELECT_COUNTRY' | translate}}" bs-select data-animation="am-flip-x" required />
+      Action <span class="caret"></span>
+    </button>
+  </div>
+
+  <div class="form-group">
+    <button type="button" class="btn btn-success btn-sm" ng-model="selects.org" data-html="1" bs-options="org.id as (org | xtranslate:'name') for org in commonData.orgs" placeholder="{{'slider.SELECT_ORGANIZATION' | translate}}" bs-select data-animation="am-flip-x" required />
+      Action <span class="caret"></span>
+    </button>
+  </div>
+
+</form>

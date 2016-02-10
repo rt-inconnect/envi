@@ -1,0 +1,100 @@
+{
+  "site" : {
+    "TITLE" : "Envi Online - Regional Information System for the environment in Central Asia",
+    "FOOTER" : "Project A1072 FLERMONECA component MONECA with the financial support of the European Union. Copyright. DIS 2015 ICWC.",
+    "DATA_VISUALIZATION" : "Data visualization",
+    "GIS" : "Geographic information system"
+  },
+  "mainmenu" : {
+    "SEARCH_PLACEHOLDER" : "Search...",
+    "FIND" : "Find",
+    "HELP" : "Help",
+    "PRINT" : "Print",
+    "EXPORT" : "Export",
+    "IMPORT" : "Import",
+    "EDIT" : "Edit"
+  },  
+  "slider" : {
+    "SELECT_DB" : "Select the database",
+    "OBJ" : "Database eco-indicators",
+    "OBJ_LONG" : "Database eco-indicators",
+    "SECTOR" : "Database sector",
+    "SECTOR_LONG" : "Database eco-sectors",
+    "KNOWLEDGE" : "Library",
+    "KNOWLEDGE_LONG" : "Database eco-literature",
+    "SELECT_COUNTRY" : "Select country",
+    "SELECT_ORGANIZATION" : "Select organization",
+    "SELECT_OBJ" : "Select monitoring point",
+    "SELECT_CATEGORY" : "Select category",
+    "SELECT_KNOWLEDGE" : "Select article",
+    "CREATE_CATEGORY" : "Create new category",
+    "CREATE_KNOWLEDGE" : "Create new article",
+    "SEND" : "Send"
+  },
+  "category" : {
+    "NAME_RU" : "Name (ru)",
+    "NAME_EN" : "Name (en)"
+  },
+  "knowledge" : {
+    "URL" : "URL",
+    "NAME_RU" : "Name (ru)",
+    "NAME_EN" : "Name (en)"
+  },
+  "modal" : {
+    "CLOSE" : "Close",
+    "SAVE" : "Save",
+    "IMPORT" : "Import",
+    "CANCEL" : "Cancel"
+  },
+  "obj" : {
+    "PASSPORT_TITLE" : "Object info",
+    "COUNTRY" : "Country",
+    "ORGANIZATION" : "Organization",
+    "OBJECT" : "Object",
+    "LATITUDE" : "Latitude",
+    "LONGITUDE" : "Longitude",
+    "YEAR" : "Year",
+    "LIMIT" : "MPN",
+    "PARAM_SELECT" : "Select param",
+    "PARAM_CREATE" : "Create param",
+    "PARAM_UPDATE" : "Update param",
+    "PARAM_DELETE" : "Delete param",
+    "PARAM_NAME_RU" : "Name (ru)",
+    "PARAM_NAME_EN" : "Name (en)",
+    "PARAM_ADD_YEAR" : "Add year",
+    "IMPORT_FILE" : "Import xls file",
+    "PICTURE" : "Upload object picture",
+    "NOTE_RU" : "Note (ru)",
+    "NOTE_EN" : "Note (en)"
+  },
+  "sector" : {
+    "INFO" : "Information is given by the BAM",
+    "BAM" : "BAM",
+    "BAM_LONG" : "The Aral Sea Basin.",
+    "REPUBLICS" : "Republics",
+    "REPUBLICS_ALL" : "Kazakhstan Republic, Kyrgyz Republic, Tajikistan, Turkmenistan, Uzbekistan",
+    "PASSPORT_NOTE" : "Located in the heart of Eurasia. Pool covers the whole territory of Tajikistan, Uzbekistan, Turkmenistan, most of the three areas of the Kyrgyz Republic (Osh, Jalalabad, Naryn) and the southern part of Kazakhstan (Kyzylorda and South Kazakhstan)",    
+    "PASSPORT_TITLE" : "Object info",
+    "PARAM_SELECT" : "Select param",
+    "PARAM_CREATE" : "Create param",
+    "PARAM_UPDATE" : "Update param",
+    "PARAM_DELETE" : "Delete param",
+    "PARAM_NAME_RU" : "Name (ru)",
+    "PARAM_NAME_EN" : "Name (en)",
+    "PARAM_ADD_YEAR" : "Add year"
+  },
+  "month" : {
+    "JAN": "Jan",
+    "FEB": "Feb",
+    "MAR": "Mar",
+    "APR": "Apr",
+    "MAY": "May",
+    "JUN": "Jun",
+    "JUL": "Jul",
+    "AUG": "AUG",
+    "SEP": "Sep",
+    "OCT": "Oct",
+    "NOV": "Nov",
+    "DEC": "Dec"
+  }
+}
